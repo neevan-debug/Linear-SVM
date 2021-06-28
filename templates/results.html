@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVM</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename ='style.css' )}}"
+    />
+  </head>
+  <body>
+  <div class="main">
+    <h1 class="heading">Support Vector Machines</h1>
+  </div>
+    <form action="result" method="POST" onsubmit="">
+      <div class="row">
+        <table
+          class="table table-dark table-bordered table-hover w-50 border-success"
+        >
+          <thead>
+            <tr class="table-warning">
+              <th scope="col">Training Data</th>
+              <th scope="col">X1</th>
+              <th scope="col">X2</th>
+              <th scope="col">Y</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in range(15)%}
+            <tr>
+              <th scope="row">{{i+1}}</th>
+              {% for j in range(3)%}
+              {% if j < 2 %}
+              <td >
+                <input type="number" step = "0.0001" class="form-control"  id="floatingInput{{i+j}}" width="10px" name="a{{i}}{{j}}" value="{{ip[i][j]}}" >
+              </td>
+              {% else %}
+              <td >
+                <input type="number" step = "0.0001" class="form-control"  id="floatingInput{{i+j}}" width="10px" name="a{{i}}{{j}}" value="0" >
+              </td>
+              {% endif %}
+              {% endfor%}
+            </tr>
+              {% endfor%}
+          </tbody>
+          
+        </table>
+
+        <div class="col">
+          <div class="Output-box" >
+            <img src="data:image/png;base64,{{plot_url}}">
+            <hr>
+            <label for="exampleFormControlTextarea1 ">Note:</label>
+              <textarea class="form-control" style="width: 600px;" id="exampleFormControlTextarea1" rows="10" disabled>
+                1. Now list out the Y values for all data points according to the way you 
+                    want to classify.
+                2. The serial number of the data points are printed along with the 
+                    points in the graph.
+                3. The SVM linear classifier which iam going to implement is based on 
+                    lagrange multiplier theorem for quadratic optimization.
+                4. Click on solve button to get the weight and bias value. 
+              </textarea>
+              <hr>
+             <button class="btn btn-primary" type="submit">Solve</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

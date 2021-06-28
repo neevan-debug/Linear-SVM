@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVM</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename ='style.css' )}}"
+    />
+  </head>
+  <body>
+  <div class="main">
+    <h1 class="heading">Support Vector Machines</h1>
+  </div>
+    <form action="calc" method="POST" onsubmit="">
+      <div class="row">
+        <div class = "col">
+        <table
+          class="table table-dark table-bordered table-hover w-100 border-success"
+        >
+          <thead>
+            <tr class="table-warning">
+              <th scope="col">Test Data</th>
+              <th scope="col">X1</th>
+              <th scope="col">X2</th>
+              <th scope="col">Y</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in range(1)%}
+            <tr>
+              <th scope="row">{{i+1}}</th>
+              {% for j in range(3)%}
+              {% if j < 2 %}
+                <td >
+                    {{op[j]}}
+                </td>
+              {% elif j == 2 %}
+                <td >
+                    {{y}}
+                </td>
+              {%endif%}
+              {% endfor%}
+            </tr>
+              {% endfor%}
+          </tbody>
+        </table>
+        <hr>
+        <label for="exampleFormControlTextarea1 ">Note:</label>
+              <textarea class="form-control" style="width: 650px;" id="exampleFormControlTextarea1" rows="12" disabled>
+                1. The classified point is denoted in blue color.
+              </textarea>
+            </div>
+  
+        <div class="col">
+          <div class="Output-box" >
+            <img src="data:image/png;base64,{{plot_url}}">
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

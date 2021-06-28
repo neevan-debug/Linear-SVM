@@ -1,0 +1,44 @@
+body {
+  font-family: Helvetica;
+  font-style: italic;
+  background-color:honeydew;
+
+}
+
+.main{
+  background-color: black;
+  color: whitesmoke;
+  
+}
+.heading {
+  text-align: center;
+  padding-bottom: 2%;
+  padding-top: 2%;
+}
+
+table {
+  text-align: center;
+  
+  margin: 0%;
+}
+tr {
+  vertical-align: middle;
+}
+
+.row .table .form-control{
+  text-align: center;
+}
+
+.row {
+  padding-left: 5%;
+  padding-top: 3%;
+  
+}
+
+.col {
+    padding-left: 5%;
+    
+  }
+
+
+
